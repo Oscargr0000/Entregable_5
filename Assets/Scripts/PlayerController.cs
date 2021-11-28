@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private float verticalInput;
+    private float horizontalInput;
 
     public float speed = 10f;
     public float turnSpeed = 20f;
@@ -17,10 +18,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+
+
+        //Static movement
+        horizontalInput = Input.GetAxis("Horizontal");
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+
+       /*if (Input.GetKeyDown(KeyCode.W))
         {
             verticalInput = Input.GetAxis("Vertical");
             transform.rotatio(Quaternion.AngleAxis(Vector3(up)) * turnSpeed * Time.deltaTime);
-        }
+        }*/
     }
 }
