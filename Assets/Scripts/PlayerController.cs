@@ -20,20 +20,20 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        verticalInput = Input.GetAxis("Vertical");
 
         //Static movement
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
         if (Input.GetKeyDown(KeyCode.W))
-        {
-            verticalInput = Input.GetAxis("Vertical");
-            transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime * verticalInput);
+        { 
+            transform.Rotate(Vector3.up *  turnSpeed * Time.deltaTime * verticalInput );
         }
 
         if (Input.GetKeyDown(KeyCode.S))
         {
-            transform.Rotate(Vector3.down, -turnSpeed * Time.deltaTime * verticalInput);
+            transform.Rotate(Vector3.down *-turnSpeed * Time.deltaTime);
         }
     }
 }
