@@ -22,6 +22,7 @@ public class SpawnManager : MonoBehaviour
 
     public void SpawnObstacle()
     {
-        
+        spawnPos = new Vector3(0, RandomY, spawnPos + 50);
+        Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
     }
 }
