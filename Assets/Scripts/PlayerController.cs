@@ -25,10 +25,15 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
-        /*if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             verticalInput = Input.GetAxis("Vertical");
-            transform.Rotate(Vector3Quaternion * turnSpeed * Time.deltaTime);
-        }*/
+            transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime * verticalInput);
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            transform.Rotate(Vector3.down, -turnSpeed * Time.deltaTime * verticalInput);
+        }
     }
 }
