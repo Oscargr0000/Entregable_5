@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private float verticalInput;
-    private float horizontalInput;
 
     public float speed = 10f;
     public float turnSpeed = 20f;
@@ -23,17 +22,9 @@ public class PlayerController : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
 
         //Static movement
-        horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
-        if (Input.GetKeyDown(KeyCode.W))
-        { 
-            transform.Rotate(Vector3.up *  turnSpeed * Time.deltaTime * verticalInput );
-        }
-
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            transform.Rotate(Vector3.down *-turnSpeed * Time.deltaTime);
-        }
+        //Rotation with W and S
+        transform.Rotate(Vector3.left * turnSpeed * Time.deltaTime * verticalInput);
     }
 }
